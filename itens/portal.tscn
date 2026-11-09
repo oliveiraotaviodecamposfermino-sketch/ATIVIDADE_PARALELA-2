@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dm8vhg21yg02j"]
+
+[ext_resource type="Texture2D" uid="uid://dxa8f0n5no1cf" path="res://assets/Portal/frame-1.png" id="1_qwjho"]
+[ext_resource type="Script" uid="uid://2xh86g4xrbkk" path="res://scripts/portal.gd" id="1_x44y2"]
+[ext_resource type="Texture2D" uid="uid://bfr0c6c0iugs1" path="res://assets/Portal/frame-2.png" id="2_x44y2"]
+[ext_resource type="Texture2D" uid="uid://60rf31a1mpng" path="res://assets/Portal/frame-3.png" id="3_brew8"]
+[ext_resource type="Texture2D" uid="uid://b01t2usgjsqms" path="res://assets/Portal/frame-4.png" id="4_yyheu"]
+[ext_resource type="Texture2D" uid="uid://b12v1bbkhuw85" path="res://assets/Portal/frame-5.png" id="5_pb08u"]
+[ext_resource type="Texture2D" uid="uid://csdb1cl6cbhub" path="res://assets/Portal/frame-6.png" id="6_io3qf"]
+[ext_resource type="Texture2D" uid="uid://k4hxg2fj60lc" path="res://assets/Portal/frame-7.png" id="7_6d1pa"]
+[ext_resource type="Texture2D" uid="uid://be6tv5co34k5i" path="res://assets/Portal/frame-8.png" id="8_tlxft"]
+[ext_resource type="Texture2D" uid="uid://crcx5hu1wdyu4" path="res://assets/Portal/frame-9.png" id="9_vmebm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj6q1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qwjho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x44y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_brew8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyheu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pb08u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_io3qf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6d1pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tlxft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vmebm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gj6q1"]
+radius = 7.0
+height = 42.0
+
+[node name="Portal" type="Area2D" unique_id=746803498]
+script = ExtResource("1_x44y2")
+metadata/_edit_group_ = true
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1738225961]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_gj6q1")
+autoplay = "default"
+frame_progress = 0.8610218
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=1628189557]
+shape = SubResource("CapsuleShape2D_gj6q1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
